@@ -1,35 +1,35 @@
 import OSC, threading, time
 
-receive_address = "0.0.0.0", 7000
+host_address = "0.0.0.0", 7000
+running = 0
+s = None
+st = None
 
-s = OSC.OSCServer(receive_address)
-s.addDefaultHandlers()
+def start_osc():
+    global running, s, st
+    
+    if running == 1:
+        print "\nOSCServer already running"
+        return
 
-# just checking which handlers we have added
-print "Registered Callback-functions are :"
-for addr in s.getOSCAddressSpace():
-        print addr
-
-# Start OSCServer
-def start_osc_server():
     print "\nStarting OSCServer."
+    s = OSC.OSCServer(host_address)
+    s.addDefaultHandlers()
     #s.serve_forever()
     st = threading.Thread( target = s.serve_forever )
     st.start()
+    running = 1
+    # Display Handlers
 
-    # just checking which handlers we have added
     print "Registered Callback-functions are :"
     for addr in s.getOSCAddressSpace():
         print addr
 
-    # Loop while threads are running.
-    try :
-        while 1 :
-            time.sleep(10)
-                     
-    except KeyboardInterrupt :
-        print "\nClosing OSCServer."
+
+def stop_osc():
+    global running, s, st
+    if running == 1:
+        print "\nStopping OSCServer."
         s.close()
-        print "Waiting for Server-thread to finish"
         st.join()
-        print "Done"
+        print "\nOSC Server stopped"
