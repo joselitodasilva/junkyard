@@ -14,8 +14,8 @@ the basic structures of that file to implement a very simple bi-directional comm
 
 import socket, OSC, re, time, threading, math
 from time import sleep
-import RPi.GPIO as GPIO
-from blinkt import set_pixel, show, set_brightness
+#import RPi.GPIO as GPIO
+#from blinkt import set_pixel, show, set_brightness
 import random
 
 receive_address = '0.0.0.0', 7000 #Mac Adress, Outgoing Port

@@ -19,8 +19,8 @@ def start_osc():
     st = threading.Thread( target = s.serve_forever )
     st.start()
     running = 1
+    
     # Display Handlers
-
     print "Registered Callback-functions are :"
     for addr in s.getOSCAddressSpace():
         print addr
