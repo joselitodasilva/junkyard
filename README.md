@@ -1,6 +1,9 @@
 # junkyard
 circus IoT
 
+trello board:
+https://trello.com/b/9HYm6ZTF/junkyard
+
 junkyard.py:
 	
 	Junkberry initiation
