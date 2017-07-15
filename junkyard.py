@@ -3,9 +3,12 @@ import junkberry
 
 app = Flask(__name__)
 
-me = junkberry.junkberry()
-me.defineType()
-print me.type
+#me = junkberry.junkberry()
+#me.defineType()
+#print me.type
+
+print junkberry.device
+
 
 #ROUTES
 @app.route("/")
@@ -15,12 +18,12 @@ def index():
 @app.route("/start")
 def start():
 	#oscserver.start_osc()
-	me.osc("run")
+	junkberry.osc("run")
 	return "osc running"
 
 @app.route("/stop")
 def stop():
-	me.osc("stop")
+	junkberry.osc("stop")
 	return "osc stopped"
 
 if __name__ == "__main__":

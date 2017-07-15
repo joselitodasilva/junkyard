@@ -33,4 +33,4 @@ def stop_osc():
         s.close()
         st.join()
         running = 0
-        print "\nOSC Server stopped"
+        print "OSC Server stopped"
