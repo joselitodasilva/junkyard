@@ -11,6 +11,7 @@ def osc(command):
 	else:
 		print "Command not recognize. Running: {}".format(oscserver.running)
 
+
 #class junkberry:
 #	def defineType(self):
 #		self.type = sys.platform
