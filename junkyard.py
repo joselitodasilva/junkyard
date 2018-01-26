@@ -9,7 +9,6 @@ app = Flask(__name__)
 
 print junkberry.device
 
-
 #ROUTES
 @app.route("/")
 def index():
@@ -27,4 +26,11 @@ def stop():
 	return "osc stopped"
 
 if __name__ == "__main__":
+	#initialise junkberry and load handlers
+	# ...
+	
+	#start osc server
+	# ...
+	
+	#run HTTP API server
     app.run(host='0.0.0.0', debug=1)
